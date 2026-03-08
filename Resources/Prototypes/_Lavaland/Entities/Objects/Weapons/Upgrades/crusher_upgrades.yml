@@ -43,11 +43,6 @@
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
       fireRate: 1
       useKey: false
-    - type: MapRestrictedGun
-      planetWhitelist:
-        components:
-        - Biome
-      popupOnBlock: gun-lavaland-restricted-message
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 1
       rechargeSound:
@@ -77,18 +72,14 @@
   - type: GunUpgradeComponents
     components:
     - type: AmmoCounter
-    - type: UseDelayOnShoot
+    - type: UseDelayOnShoot #
     - type: GunRequiresWield
     - type: Gun # TODO turn it into an action gun and add auto-targeting
       projectileSpeed: 12 # Needed for the trail to look good
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
-      fireRate: 0.125
+      fireRate: 1
+      fireRateModified: 1
       useKey: false
-    - type: MapRestrictedGun
-      planetWhitelist:
-        components:
-        - Biome
-      popupOnBlock: gun-lavaland-restricted-message
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 8
       rechargeSound:
