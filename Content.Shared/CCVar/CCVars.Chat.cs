@@ -27,20 +27,20 @@ public sealed partial class CCVars
     /// </remarks>
     /// <seealso cref="ChatRateLimitPeriod"/>
     public static readonly CVarDef<int> ChatRateLimitCount =
-        CVarDef.Create("chat.rate_limit_count", 10, CVar.SERVERONLY);
+        CVarDef.Create("chat.rate_limit_count", 15, CVar.SERVERONLY);
 
     /// <summary>
     ///     Minimum delay (in seconds) between notifying admins about chat message rate limit violations.
     ///     A negative value disables admin announcements.
     /// </summary>
     public static readonly CVarDef<int> ChatRateLimitAnnounceAdminsDelay =
-        CVarDef.Create("chat.rate_limit_announce_admins_delay", 15, CVar.SERVERONLY);
+        CVarDef.Create("chat.rate_limit_announce_admins_delay", 5, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> ChatMaxMessageLength =
-        CVarDef.Create("chat.max_message_length", 1000, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("chat.max_message_length", 5000, CVar.SERVER | CVar.REPLICATED);
 
     public static readonly CVarDef<int> ChatMaxAnnouncementLength =
-        CVarDef.Create("chat.max_announcement_length", 512, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("chat.max_announcement_length", 2512, CVar.SERVER | CVar.REPLICATED);
 
     public static readonly CVarDef<bool> ChatSanitizerEnabled =
         CVarDef.Create("chat.chat_sanitizer_enabled", true, CVar.SERVERONLY);
@@ -88,7 +88,7 @@ public sealed partial class CCVars
     /// The color in which the highlights will be displayed.
     /// </summary>
     public static readonly CVarDef<string> ChatHighlightsColor =
-        CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
+        CVarDef.Create("chat.highlights_color", "#abcdef", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
 
     #region Goobstation - Chat Highlight sounds!
     // Goobstation - Chat Highlight sounds!

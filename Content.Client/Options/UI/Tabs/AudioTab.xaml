@@ -36,10 +36,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <ui:OptionSlider Name="SliderVolumeBark" Title="{Loc 'ui-options-bark-volume'}" />
                 <ui:OptionSlider Name="SliderLimitBark" Title="{Loc 'ui-options-bark-limit'}" />
                 <!--WD EDIT END-->
+                <!-- LocalDuty: Dynamic Ambient Music -->
+                <ui:OptionSlider Name="SliderVolumeDutyAmbient" Title="{Loc 'ui-options-duty-ambient-music-volume'}" />
                 <ui:OptionSlider Name="SliderMaxAmbienceSounds" Title="{Loc 'ui-options-ambience-max-sounds'}"
                                  Margin="0 0 0 8" />
                 <ui:OptionSlider Name="SliderHighlightVolume" Title="{Loc 'ui-options-highlight-volume'}" /> <!-- Goobstation - Highlight chat Ping/Audio! -->
 
+                <!-- LocalDuty: Dynamic Ambient Music -->
+                <CheckBox Name="DutyAmbientMusicCheckBox" Text="{Loc 'ui-options-duty-ambient-music'}" />
                 <CheckBox Name="HearSelfCheckBox" Text="{Loc 'ui-options-hear-self'}" />
                 <CheckBox Name="LobbyMusicCheckBox" Text="{Loc 'ui-options-lobby-music'}" />
                 <CheckBox Name="RestartSoundsCheckBox" Text="{Loc 'ui-options-restart-sounds'}" />

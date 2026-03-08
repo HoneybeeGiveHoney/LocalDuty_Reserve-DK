@@ -36,7 +36,7 @@ public sealed partial class CCVars
     ///     How long a client can go without any input before being considered AFK.
     /// </summary>
     public static readonly CVarDef<float> AfkTime =
-        CVarDef.Create("afk.time", 60f, CVar.SERVERONLY);
+        CVarDef.Create("afk.time", 120f, CVar.SERVERONLY);
 
     /// <summary>
     ///     Flavor limit. This is to ensure that having a large mass of flavors in

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+    // SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -15,14 +15,14 @@ public sealed partial class CCVars
     /// </summary>
     /// <seealso cref="AhelpRateLimitCount"/>
     public static readonly CVarDef<float> AhelpRateLimitPeriod =
-        CVarDef.Create("ahelp.rate_limit_period", 2f, CVar.SERVERONLY);
+        CVarDef.Create("ahelp.rate_limit_period", 0.5f, CVar.SERVERONLY);
 
     /// <summary>
     ///     How many ahelp messages are allowed in a single rate limit period.
     /// </summary>
     /// <seealso cref="AhelpRateLimitPeriod"/>
     public static readonly CVarDef<int> AhelpRateLimitCount =
-        CVarDef.Create("ahelp.rate_limit_count", 10, CVar.SERVERONLY);
+        CVarDef.Create("ahelp.rate_limit_count", 15, CVar.SERVERONLY);
 
     /// <summary>
     ///     Should the administrator's position be displayed in ahelp.
@@ -31,7 +31,7 @@ public sealed partial class CCVars
     /// <seealso cref="AdminUseCustomNamesAdminRank"/>
     /// <seealso cref="AhelpAdminPrefixWebhook"/>
     public static readonly CVarDef<bool> AhelpAdminPrefix =
-        CVarDef.Create("ahelp.admin_prefix", false, CVar.SERVERONLY);
+        CVarDef.Create("ahelp.admin_prefix", true, CVar.SERVERONLY);
 
     /// <summary>
     ///     Should the administrator's position be displayed in the webhook.

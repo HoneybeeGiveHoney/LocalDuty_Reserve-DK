@@ -140,6 +140,14 @@ public sealed partial class AudioTab : Control
             0,
             128);
 
+        // LocalDuty: Dynamic Ambient Music
+        Control.AddOptionPercentSlider(
+            DutyCCVars.DynamicAmbientMusicVolume,
+            SliderVolumeDutyAmbient,
+            scale: 1f);
+
+        Control.AddOptionCheckBox(DutyCCVars.DynamicAmbientMusicEnabled, DutyAmbientMusicCheckBox);
+
         // Goobstation - Highlight Chat Ping/Audio!
         Control.AddOptionPercentSlider(
             CCVars.ChatHighlightVolume,
