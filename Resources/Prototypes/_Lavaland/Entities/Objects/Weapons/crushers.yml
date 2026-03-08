@@ -49,7 +49,6 @@
     wideAnimationRotation: -135
     soundHit:
       collection: MetalThud
-  - type: PressureDamageChange
   - type: Wieldable
   - type: GunRequiresWield
   - type: UseDelayBlockMelee
