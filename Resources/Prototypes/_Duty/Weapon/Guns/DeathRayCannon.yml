@@ -10,10 +10,10 @@
     shape:
     - 0,0,2,2
   - type: Sprite
-    sprite: _Duty/Weapons/DRC.rsi
+    sprite: _Duty/Weapons/Guns/DRC.rsi
     state: icon
   - type: Clothing
-    sprite: _Duty/Weapons/DRC.rsi
+    sprite: _Duty/Weapons/Guns/DRC.rsi
   - type: HitscanBatteryAmmoProvider
     proto: DeathRay
     fireCost: 10

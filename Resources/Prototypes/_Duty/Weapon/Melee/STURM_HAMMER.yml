@@ -1,4 +1,4 @@
-#_Duty\Weapons breaching_hammer.rsi
+#_Duty/Weapons/Melee/breaching_hammer.rsi (после сортировочки :Р )
 
 - type: entity
   name: Штурмовой молот Колотушка
@@ -7,7 +7,7 @@
   description: Колотушка - Трофейное оружие командира Каска.
   components:
   - type: Sprite
-    sprite: _Duty/Weapons/breaching_hammer.rsi
+    sprite: _Duty/Weapons/Melee/breaching_hammer.rsi
     state: icon
   - type: Item
     size: Ginormous
@@ -47,7 +47,7 @@
     pryPowered: true
     useSound: /Audio/Items/jaws_pry.ogg
   - type: Clothing
-    sprite: _Duty/Weapons/breaching_hammer.rsi
+    sprite: _Duty/Weapons/Melee/breaching_hammer.rsi
     quickEquip: false
     slots:
     - back

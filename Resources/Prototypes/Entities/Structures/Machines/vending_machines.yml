@@ -388,7 +388,7 @@
     pack: GenericVendGoodbyes
   - type: Transform
     noRot: false
-
+#seed
 - type: entity
   parent: VendingMachine
   id: VendingMachineAmmo
@@ -1488,7 +1488,7 @@
     color: "#CE3401"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-
+#
 - type: entity
   parent: VendingMachineSnack
   id: VendingMachineSnackGreen
