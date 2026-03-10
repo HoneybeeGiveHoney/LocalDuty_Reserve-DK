@@ -6,13 +6,13 @@
   suffix: keeps tiles, no despawn
   components:
   - type: TailedEntity
-    amount: 65
+    amount: 9
     speed: 13
     spacing: 1
     prototype: SpaceWhaleSegment
   - type: MovementSpeedModifier
-    baseSprintSpeed: 11
-    baseWalkSpeed: 11
+    baseSprintSpeed: 10
+    baseWalkSpeed: 10
   - type: RadarBlip
     scale: 3
     shape: hexagon

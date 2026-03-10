@@ -2,10 +2,10 @@
   name: Штурмовой топор "Рыбаёж"
   parent: BaseItem
   id: SturmAxeKarp335
-  description: жеси паслушай ти риба  йош
+  description: жеси паслушай ти риба йош
   components:
   - type: Sprite
-    sprite: _Duty/Weapons/axe.rsi
+    sprite: _Duty/Weapons/Melee/axe.rsi
     state: icon
   - type: Item
     size: Ginormous
@@ -36,7 +36,7 @@
     pryPowered: true
     useSound: /Audio/Items/jaws_pry.ogg
   - type: Clothing
-    sprite: _Duty/Weapons/axe.rsi
+    sprite: _Duty/Weapons/Melee/axe.rsi
     quickEquip: false
     slots:
     - back

@@ -18,14 +18,14 @@
         Heat: 0
         Radiation: 0.05
         Caustic: 0.40
-  - type: PressureProtection
+  - type: PressureProtection  # Похоже, оно не работает, ведь защита от давления работает только когда в слоте внешней одежды :(
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 1
   - type: TemperatureProtection
     heatingCoefficient: 0.001
-    coolingCoefficient: 0.05
+    coolingCoefficient: 0.5
   - type: Reflect
     reflectProb: 1
     reflects:

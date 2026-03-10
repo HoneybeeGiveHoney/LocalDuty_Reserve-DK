@@ -5,7 +5,7 @@
   description: and Thy punisment, is dead.
   components:
   - type: Sprite
-    sprite: _Duty/Weapons/Decimator.rsi
+    sprite: _Duty/Weapons/Melee/Decimator.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -33,20 +33,20 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/_Duty/Deci_shoot.ogg
+      path: /Audio/_Duty/Weapons/Melee/Decimator/Deci_reload.ogg
     useKey: false
   - type: AmmoCounter
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 5
     rechargeSound:
-      path: /Audio/_Duty/Deci_reload.ogg
+      path: /Audio/_Duty/Weapons/Melee/Decimator/Deci_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: DeciBullet
     capacity: 1
     count: 1
   - type: GunRequiresWield
   - type: Clothing
-    sprite: _Duty/Weapons/Decimator.rsi
+    sprite: _Duty/Weapons/Melee/Decimator.rsi
     quickEquip: false
     slots:
     - Back

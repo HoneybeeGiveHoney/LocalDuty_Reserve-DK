@@ -1,0 +1,87 @@
+
+# ============================================== Начало целебного мха ==================================================================================================
+
+- type: seed
+  id: MagnificentMoss
+  name: Целебный мох
+  noun: seeds-noun-seeds
+  displayName: Колония целебного мха
+  plantRsi: _Duty/Specific/Hydroponics/Moss.rsi
+  packetPrototype: MossSeeds
+  productPrototypes:
+    - FoodMoss
+  lifespan: 60
+  maturation: 6
+  production: 9
+  yield: 5
+  potency: 15
+  growthStages: 3
+  idealHeat: 340
+  waterConsumption: 2.5
+  nutrientConsumption: -1
+  harvestRepeat: Repeat
+  chemicals:
+    Water:
+      Min: 4
+      Max: 52
+      PotencyDivisor: 10
+    Omnizine:
+      Min: 1
+      Max: 1
+      PotencyDivisor: 40
+
+- type: entity
+  name: Soggy Moss
+  parent: [FoodProduceBase, BaseItem]
+  id: FoodMoss
+  description: Its very wet, and looks gross.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - Moss
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Water
+          Quantity: 20
+        - ReagentId: Nutriment
+          Quantity: 8
+  - type: Sprite
+    sprite: _Duty/Specific/Hydroponics/Moss.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Water
+        Quantity: 49
+      - ReagentId: Omnizine
+        Quantity: 1
+  - type: ThrowingAngle
+    angle: 180
+  - type: LandAtCursor
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib2.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: SeedBase
+  name: packet of Moss Spores
+  id: MossSeeds
+  components:
+    - type: Seed
+      seedId: MagnificentMoss
+    - type: Sprite
+      sprite: _Duty/Specific/Hydroponics/Moss.rsi
+      state: Moss_Spores
+# ============================================== Конец целебного мха ===================================================================================================
