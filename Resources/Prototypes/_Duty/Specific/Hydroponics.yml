@@ -25,9 +25,9 @@
       Min: 4
       Max: 52
       PotencyDivisor: 10
-    Omnizine:
+    Nutriment:
       Min: 1
-      Max: 1
+      Max: 10
       PotencyDivisor: 40
 
 - type: entity
@@ -45,7 +45,7 @@
         maxVol: 9
         reagents:
         - ReagentId: Water
-          Quantity: 20
+          Quantity: 52
         - ReagentId: Nutriment
           Quantity: 8
   - type: Sprite
@@ -85,3 +85,238 @@
       sprite: _Duty/Specific/Hydroponics/Moss.rsi
       state: Moss_Spores
 # ============================================== Конец целебного мха ===================================================================================================
+
+# ============================================== Начало Грозовой капусты ===============================================================================================
+
+- type: seed
+  id: ElectroCabbage
+  name: Гром-капуста
+  noun: seeds-noun-seeds
+  displayName: Гром-капуста
+  plantRsi: _Duty/Specific/Hydroponics/ElectroCabbage.rsi
+  packetPrototype: ElectroCabbageSeeds
+  productPrototypes:
+    - FoodElectroCabbage
+  lifespan: 50
+  maturation: 9
+  production: 3
+  yield: 3
+  potency: 15
+  growthStages: 1
+  chemicals:
+    Licoxide:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 20
+    Plasma:
+      Min: 5
+      Max: 30
+      PotencyDivisor: 30
+
+- type: entity
+  name: Electro Cabbage
+  parent: [FoodProduceBase, BaseItem]
+  id: FoodElectroCabbage
+  description: crackling with lightnings. Better not to eat.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - Moss
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Licoxide
+          Quantity: 5
+        - ReagentId: SulfuricAcid
+          Quantity: 10
+  - type: Sprite
+    layers:
+      - sprite: _Duty/Specific/Hydroponics/ElectroCabbage.rsi
+        state: produce
+      - sprite: _Duty/Specific/Hydroponics/ElectroCabbage.rsi
+        state: Unshaded_produce
+        shader: unshaded
+  - type: Item
+    heldPrefix: produce
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 30
+  - type: Electrified
+    shockDamage: 5
+    requirePower: false
+    ignoreInsulation: false
+  - type: Tag
+    tags:
+    - ElectroCabbageTag
+
+- type: entity
+  parent: SeedBase
+  name: packet of electro cabbage seeds
+  id: ElectroCabbageSeeds
+  components:
+    - type: Seed
+      seedId: ElectroCabbage
+    - type: Sprite
+      sprite: _Duty/Specific/Hydroponics/ElectroCabbage.rsi
+      state: Seed
+
+- type: entity
+  id: CabbageGenerator
+  description: Um... its """"Generator""""
+  suffix: Generator
+  name: Cabbage generator
+  parent: [ BaseGenerator ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    sprite: _Duty/Structures/Power/CabbageGenerator.rsi
+    state: generator
+    snapCardinals: true
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      output:
+        !type:CableDeviceNode
+        nodeGroupID: MVPower
+  - type: PowerMonitoringDevice
+    group: Generator
+    loadNode: output
+    sprite: _Duty/Structures/Power/CabbageGenerator.rsi
+    state: generator
+  - type: PowerSupplier
+    supplyRate: 2000
+    supplyRampRate: 500
+    supplyRampTolerance: 500
+    voltage: Medium
+  - type: Anchorable
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Wood # ну, я не слишком знаю какой множитель поставить ДЛЯ ГЕНЕРАТОРА ИЗ КАПУСТЫ
+  - type: PacifismDangerousAttack
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib2.ogg
+  - type: StaticPrice
+    price: 400
+  - type: Electrified
+    onHandInteract: false
+    onInteractUsing: true
+    onBump: false
+    requirePower: true
+    highVoltageNode: output
+  - type: Construction
+    graph: CabbageGeneratorRecipe
+    node: done
+
+- type: entity
+  parent: [ BasePowerCell ]
+  id: CabbageBattery
+  name: Cabbage battery
+  description: Its... very creatively.
+  components:
+  - type: Sprite
+    sprite: _Duty/Objects/Power/CabbageBattery.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: CabbageBattery
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Item
+    storedRotation: -90
+  - type: Battery
+    maxCharge: 180
+    startingCharge: 180
+    pricePerJoule: 0.15
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0.4
+  - type: Construction
+    graph: CabbageBatteryRecipe
+    node: done
+
+# ============================================== начало крафта из грозовой капусты
+- type: construction
+  id: CabbageGeneratorCraft
+  graph: CabbageGeneratorRecipe
+  startNode: start
+  targetNode: done
+  category: construction-category-structures
+  objectType: Item
+
+- type: construction
+  id: CabbageBatteryCraft
+  graph: CabbageBatteryRecipe
+  startNode: start
+  targetNode: done
+  category: construction-category-misc
+  objectType: Item
+
+- type: constructionGraph
+  id: CabbageBatteryRecipe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - material: MetalRod
+        amount: 2
+      - material: Cable
+        amount: 2
+      - tag: ElectroCabbageTag
+        icon:
+          sprite: _Duty/Specific/Hydroponics/ElectroCabbage.rsi
+          state: icon
+      doAfter: 6
+  - node: done
+    entity: CabbageBattery
+
+- type: constructionGraph
+  id: CabbageGeneratorRecipe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - material: WoodPlank
+        amount: 8
+      - material: MetalRod
+        amount: 6
+      - material: CableMV
+        amount: 2
+      - tag: ElectroCabbageTag
+        icon:
+          sprite: _Duty/Specific/Hydroponics/ElectroCabbage.rsi
+          state: icon
+      - tag: ElectroCabbageTag
+        icon:
+          sprite: _Duty/Specific/Hydroponics/ElectroCabbage.rsi
+          state: icon
+      - tag: ElectroCabbageTag
+        icon:
+          sprite: _Duty/Specific/Hydroponics/ElectroCabbage.rsi
+          state: icon
+        doAfter: 5
+  - node: done
+    entity: CabbageGenerator
+# ============================================== конец крафта из грозовой капусты

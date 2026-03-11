@@ -806,6 +806,9 @@
   id: Figurine
 
 - type: Tag
+  id: ElectroCabbageTag
+
+- type: Tag
   id: FireAlarm
 
 - type: Tag

@@ -11,7 +11,7 @@
     equipSound: /Audio/Effects/metal_scrape2.ogg
     unequipSound: /Audio/Effects/metal_scrape1.ogg
     equipDelay: 3
-    unequipDelay: 3  
+    unequipDelay: 3
   - type: Armor
     modifiers:
       coefficients:
@@ -87,7 +87,7 @@
       - material: MetalRod
         amount: 5
       - material: Cable
-        amout: 10
+        amount: 10
       - material: ReinforcedGlass
         amount: 4
         doAfter: 2
@@ -115,9 +115,9 @@
       - material: MetalRod
         amount: 15
       - material: Cable
-        amout: 10
+        amount: 10
       - material: Cloth
-        amout: 10
+        amount: 10
         doAfter: 10
   - node: done
     entity: ClothingGA
