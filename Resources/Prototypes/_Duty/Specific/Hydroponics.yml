@@ -25,16 +25,26 @@
       Min: 35
       Max: 45
       PotencyDivisor: 10
-    Omnizine:
+    MossJuice:
       Min: 1
-      Max: 5
+      Max: 20
       PotencyDivisor: 40
+
+- type: flavor
+  id: Moss
+  flavorType: Base
+  description: гниль, болото, пищевое отравление
+
+- type: flavor
+  id: MossTea
+  flavorType: Base
+  description: Слегка блевотно
 
 - type: entity
   name: Soggy Moss
   parent: [FoodProduceBase, BaseItem]
   id: FoodMoss
-  description: Its very wet, and looks gross.
+  description: Its very wet, and looks gross
   components:
   - type: FlavorProfile
     flavors:
@@ -42,12 +52,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 9
+        maxVol: 50
         reagents:
         - ReagentId: Water
           Quantity: 30
-        - ReagentId: Omnizine
-          Quantity: 1
+        - ReagentId: MossJuice
+          Quantity: 10
   - type: Sprite
     sprite: _Duty/Specific/Hydroponics/Moss.rsi
   - type: Item
@@ -84,6 +94,92 @@
     - type: Sprite
       sprite: _Duty/Specific/Hydroponics/Moss.rsi
       state: Moss_Spores
+
+- type: reagent
+  id: MossJuice
+  name: Сфагмиум
+  group: Botanical
+  desc: Вещество, добытое из целебного мха. Хорошо удобряет растения, и содержит в себе некоторые медикаменты, получаемые путём обработки в центрифуге
+  flavor: Moss
+  color: "#0f3300"
+  physicalDesc: Гнилой
+  plantMetabolism:
+    - !type:PlantAdjustNutrition
+      amount: 2
+    - !type:PlantAdjustWeeds
+      probability: 0.03
+      amount: -1
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SuppressPain
+        amount: 3
+        time: 30
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -0.4
+            Shock: -3
+            Cold: -0.1
+            Caustic: -3
+            Asphyxiation: 8
+            Poison: 2
+            Radiation: -1
+
+- type: reagent
+  id: MossTea
+  name: Мховый чай
+  group: Botanical
+  desc: Чай, ужасный на вкус но исцеляющий ранения. Худший напиток, что может предложить бармен
+  flavor: MossTea
+  color: "#386326"
+  physicalDesc: Густой
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:SuppressPain
+        amount: 4
+        time: 30
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -0.5
+            Shock: -2
+            Cold: -1
+            Caustic: -1
+            Poison: 0.02
+            Radiation: -1
+            Asphyxiation: 1.5
+            Bloodloss: -2
+            Blunt: -1
+            Slash: -1
+            Piercing: -1
+
+- type: reaction
+  id: MossTea
+  reactants:
+    Tea:
+      amount: 3
+    MossJuice:
+      amount: 2
+  products:
+    MossTea: 5
+
+- type: reaction
+  id: MossFiltration
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    MossJuice:
+      amount: 1
+  products:
+    Water: 0.35
+    Omnizine: 0.1
+    Carbon: 0.1
+    DexalinPlus: 0.1
+    Lexorin: 0.3
 # ============================================== Конец целебного мха ===================================================================================================
 
 # ============================================== Начало Грозовой капусты ===============================================================================================
