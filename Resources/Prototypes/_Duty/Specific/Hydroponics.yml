@@ -72,6 +72,13 @@
   - type: ThrowingAngle
     angle: 180
   - type: LandAtCursor
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 10
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: glass # эм... не знаю что ещё сюда поставить
   - type: Destructible
     thresholds:
     - trigger:
@@ -80,9 +87,30 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/gib2.ogg
+          path: /Audio/Effects/gib1.ogg
+          params:
+            volume: 2
+      - !type:SpillBehavior
+        solution: food
+        transferForensics: true
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - LowImpassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 30
+        mask:
+        - ItemMask
 
 - type: entity
   parent: SeedBase
