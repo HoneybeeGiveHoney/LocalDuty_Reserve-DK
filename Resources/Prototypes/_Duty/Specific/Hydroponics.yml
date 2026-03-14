@@ -22,12 +22,12 @@
   harvestRepeat: Repeat
   chemicals:
     Water:
-      Min: 4
-      Max: 52
+      Min: 35
+      Max: 45
       PotencyDivisor: 10
-    Nutriment:
+    Omnizine:
       Min: 1
-      Max: 10
+      Max: 5
       PotencyDivisor: 40
 
 - type: entity
@@ -45,9 +45,9 @@
         maxVol: 9
         reagents:
         - ReagentId: Water
-          Quantity: 52
-        - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 30
+        - ReagentId: Omnizine
+          Quantity: 1
   - type: Sprite
     sprite: _Duty/Specific/Hydroponics/Moss.rsi
   - type: Item
@@ -56,9 +56,9 @@
     juiceSolution:
       reagents:
       - ReagentId: Water
-        Quantity: 49
-      - ReagentId: Omnizine
-        Quantity: 1
+        Quantity: 30
+      - ReagentId: Nutriment
+        Quantity: 20
   - type: ThrowingAngle
     angle: 180
   - type: LandAtCursor
@@ -193,7 +193,7 @@
     sprite: _Duty/Structures/Power/CabbageGenerator.rsi
     state: generator
   - type: PowerSupplier
-    supplyRate: 2000
+    supplyRate: 4000
     supplyRampRate: 500
     supplyRampTolerance: 500
     voltage: Medium
@@ -207,13 +207,14 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Effects/gib2.ogg
+      - !type:ExplodeBehavior
   - type: StaticPrice
     price: 400
   - type: Electrified
@@ -222,6 +223,11 @@
     onBump: false
     requirePower: true
     highVoltageNode: output
+  - type: Explosive
+    explosionType: Cryo
+    maxIntensity: 30
+    intensitySlope: 1
+    totalIntensity: 200
   - type: Construction
     graph: CabbageGeneratorRecipe
     node: done
@@ -299,11 +305,11 @@
     - to: done
       steps:
       - material: WoodPlank
-        amount: 8
+        amount: 20
       - material: MetalRod
         amount: 6
       - material: CableMV
-        amount: 2
+        amount: 15
       - tag: ElectroCabbageTag
         icon:
           sprite: _Duty/Specific/Hydroponics/ElectroCabbage.rsi

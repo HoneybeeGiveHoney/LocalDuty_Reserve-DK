@@ -2,7 +2,7 @@
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
   id: ClothingGA
   name: Graytide armor
-  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  description: Its robust armour.
   components:
   - type: Sprite
     sprite: _Duty/Clothing/GreytideArmor/armor.rsi
@@ -17,7 +17,7 @@
       coefficients:
         Blunt: 0.50
         Slash: 0.65
-        Piercing: 0.80
+        Piercing: 0.70
         Heat: 0.90
   - type: ExplosionResistance
     damageCoefficient: 0.60
@@ -27,7 +27,7 @@
       Plastic: 300
   - type: ClothingSpeedModifier
     walkModifier: 1
-    sprintModifier: 0.95
+    sprintModifier: 1.15 # Пружины слегка ускоряют бег
   - type: Construction
     graph: GraytideArmorRecipe
     node: done
@@ -87,7 +87,7 @@
       - material: MetalRod
         amount: 5
       - material: Cable
-        amount: 10
+        amount: 5
       - material: ReinforcedGlass
         amount: 4
         doAfter: 2
@@ -111,13 +111,13 @@
     - to: done
       steps:
       - material: Steel
-        amount: 30
+        amount: 20
       - material: MetalRod
-        amount: 15
+        amount: 10
       - material: Cable
-        amount: 10
+        amount: 5
       - material: Cloth
-        amount: 10
+        amount: 5
         doAfter: 10
   - node: done
     entity: ClothingGA
