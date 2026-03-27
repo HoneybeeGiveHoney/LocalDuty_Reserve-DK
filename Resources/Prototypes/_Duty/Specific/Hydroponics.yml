@@ -17,6 +17,7 @@
   potency: 15
   growthStages: 3
   idealHeat: 340
+  endurance: 3
   waterConsumption: 2.5
   nutrientConsumption: -1
   harvestRepeat: Repeat

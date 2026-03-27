@@ -6,13 +6,13 @@
   suffix: keeps tiles, no despawn
   components:
   - type: TailedEntity
-    amount: 9
-    speed: 13
+    amount: 1
+    speed: 8
     spacing: 1
-    prototype: SpaceWhaleSegment
+    prototype: SpaceWhaleSegment1
   - type: MovementSpeedModifier
-    baseSprintSpeed: 10
-    baseWalkSpeed: 10
+    baseSprintSpeed: 8
+    baseWalkSpeed: 8
   - type: RadarBlip
     scale: 3
     shape: hexagon
@@ -97,7 +97,7 @@
 
 
 - type: entity
-  id: SpaceWhaleSegment
+  id: SpaceWhaleSegment1
   parent: FlyingMobBase
   suffix: do not spawn
   components:
@@ -114,6 +114,57 @@
     - HideContextMenu
   - type: Physics
     canCollide: false
+  - type: TailedEntity
+    amount: 1
+    speed: 8
+    spacing: 1
+    prototype: SpaceWhaleSegment2
+
+- type: entity
+  id: SpaceWhaleSegment2
+  abstract: true
+  parent: SpaceWhaleSegment1
+  components:
+  - type: TailedEntity
+    amount: 1
+    speed: 8
+    spacing: 1
+    prototype: SpaceWhaleSegment3
+
+- type: entity
+  id: SpaceWhaleSegment3
+  abstract: true
+  parent: SpaceWhaleSegment2
+  components:
+  - type: TailedEntity
+    amount: 1
+    speed: 8
+    spacing: 1
+    prototype: SpaceWhaleSegment4
+
+- type: entity
+  id: SpaceWhaleSegment4
+  abstract: true
+  parent: SpaceWhaleSegment3
+  components:
+  - type: TailedEntity
+    amount: 1
+    speed: 8
+    spacing: 1
+    prototype: SpaceWhaleSegment5
+
+- type: entity
+  id: SpaceWhaleSegment5
+  abstract: true
+  parent: SpaceWhaleSegment4
+  components:
+  - type: TailedEntity
+    amount: 0
+    speed: 8
+    spacing: 1
+    prototype: BulletAcid
+
+
 
 - type: entity
   id: SpaceLeviathanDespawn
