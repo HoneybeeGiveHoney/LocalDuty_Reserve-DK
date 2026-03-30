@@ -529,6 +529,7 @@
     - MedicalMisc
     - MedicalVehiclesAdvanced
     - UpgradeKits
+    - CivilBracelets
     - ConstructionBagOfHolding
     # Einstein Engines Packs
     - Translators
@@ -771,6 +772,7 @@
     - PowerCellsStatic
     - ScienceExplosives
     - GrenadeTriggersStatic
+    - BraceletSecurity
     - SecurityWeaponsStaticGoob
     dynamicPacks:
     - SalvageSecurityBoards
